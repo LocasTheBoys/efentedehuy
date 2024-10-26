@@ -51,9 +51,9 @@ end
 -- Menyiapkan bagian untuk teleportasi
 local path = workspace.Map:WaitForChild("Paths"):WaitForChild("1")
 local partList = {
-    {path:WaitForChild("2"), path:WaitForChild("Start")},
+    {path:WaitForChild("2"), path:WaitForChild("Start")},--tengah
     {path:WaitForChild("2"), path:WaitForChild("4")},--ini
-    {path:WaitForChild("1"), path:WaitForChild("3")},
+    {path:WaitForChild("1"), path:WaitForChild("3")},--cekung
     {path:WaitForChild("2"), path:WaitForChild("Start")},
     {path:WaitForChild("2"), path:WaitForChild("Start")},
     {path:WaitForChild("2"), path:WaitForChild("4")},--ini
