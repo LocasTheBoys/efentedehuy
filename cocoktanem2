@@ -14,8 +14,8 @@ local currentFreddyCount = 0  -- Menghitung jumlah Freddy yang sudah disummon
 local nama_pet = "Funtime Freddy"  -- Anda dapat mengubah nama pet di sini
 
 -- Radius lingkaran sekitar player
-local radius = 10  -- Radius luar
-local innerRadius = 7  -- Radius dalam (lubang donat)
+local radius = 11  -- Radius luar
+local innerRadius = 8  -- Radius dalam (lubang donat)
 local usedPositions = {} 
 
 local radiusIndicator = Instance.new("Part")
