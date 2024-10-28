@@ -22,8 +22,10 @@ if game.PlaceId == 15860930970 then
     local scripts = {
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanem1",--polisi
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanem2",--freddy pink
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanem3",--Tangle
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade1",
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade2",
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade3",
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/auto_skip.txt",
         "https://raw.githubusercontent.com/LocasTheBoys/efentedeh/refs/heads/main/TryAgain"
     }
