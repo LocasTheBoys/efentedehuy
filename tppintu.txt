@@ -1,18 +1,18 @@
--- Auto Join Game
+-- Auto Join Game Helloween
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
 -- Koordinat target untuk Opsi 1 dan Opsi 2
-local targetPosition1 = Vector3.new(-953.38, 245.07, -94.70)
-local targetPosition2 = Vector3.new(-1146.24, 245.07, -43.24)
+local targetPosition1 = Vector3.new(1677, 8, -4736)--tengah pintu end posisi
+local targetPosition2 = Vector3.new(1721, 8, -4635)--tengah pintu end posisi
 
 -- Lokasi teleportasi untuk Opsi 1
-local teleportPosition1_1 = CFrame.new(-953.98, 245.01, -71.20)
-local teleportPosition1_2 = CFrame.new(-953.73, 245.07, -83.88)
+local teleportPosition1_1 = CFrame.new(1693.19, 8.14, -4734.81)--tengah
+local teleportPosition1_2 = CFrame.new(1685.64, 8.19, -4735.36)--trigger
 
 -- Lokasi teleportasi untuk Opsi 2
-local teleportPosition2_1 = CFrame.new(-1145.33, 245.01, -62.58)
-local teleportPosition2_2 = CFrame.new(-1145.64, 245.07, -54.63)
+local teleportPosition2_1 = CFrame.new(1705.54, 8.14, -4636.60)--tengah
+local teleportPosition2_2 = CFrame.new(1713.09, 8.19, -4636.35)--trigger
 
 -- Cek apakah pemain berada di game dengan ID tertentu
 if game.PlaceId == 15846919378 then
