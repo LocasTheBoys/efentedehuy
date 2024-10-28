@@ -5,7 +5,7 @@ if game.PlaceId == 15860930970 then
     local args = {
         [1] = "400",
         [2] = 2,
-        [3] = 1
+        [3] = 2
     }
     game:GetService("ReplicatedStorage").Remotes.Main.Vote:FireServer(unpack(args))
     wait (1)
