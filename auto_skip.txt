@@ -1,6 +1,6 @@
 task.wait(14)
 -- Konfigurasi
-local targetWavesToDisableSkip = { "Wave 11/15", "Wave 12/15", "Wave 13/15", } -- Waves yang ingin menonaktifkan auto skip
+local targetWavesToDisableSkip = { "Wave 6/15", "Wave 7/15", "Wave 8/15", } -- Waves yang ingin menonaktifkan auto skip
 local waitTimeBeforeCheck = 3 -- Waktu tunggu sebelum memulai pengecekan wave (dalam detik)
 
 local Players = game:GetService("Players")
