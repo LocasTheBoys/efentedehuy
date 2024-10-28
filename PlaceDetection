@@ -3,8 +3,8 @@ if game.PlaceId == 15860930970 then
     wait(1)
     -- Pilih Level
     local args = {
-        [1] = "4",
-        [2] = 1,
+        [1] = "400",
+        [2] = 2,
         [3] = 1
     }
     game:GetService("ReplicatedStorage").Remotes.Main.Vote:FireServer(unpack(args))
