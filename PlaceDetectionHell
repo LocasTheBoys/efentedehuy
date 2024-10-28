@@ -5,7 +5,7 @@ if game.PlaceId == 15860930970 then
     local args = {
         [1] = "400",
         [2] = 2,
-        [3] = 2
+        [3] = 1
     }
     game:GetService("ReplicatedStorage").Remotes.Main.Vote:FireServer(unpack(args))
     wait (1)
@@ -26,7 +26,7 @@ if game.PlaceId == 15860930970 then
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade1",
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade2",
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade3",
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/auto_skip.txt",
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedeh/refs/heads/main/AutoSkip",
         "https://raw.githubusercontent.com/LocasTheBoys/efentedeh/refs/heads/main/TryAgain"
     }
     
