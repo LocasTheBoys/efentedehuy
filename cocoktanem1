@@ -1,0 +1,105 @@
+wait(10)
+-- Konfigurasi script summon pet benar 2
+local petName = "Nightguard Afton"
+local summonCount = 10 -- Jumlah pet yang akan disummon
+local summonRadiusX = 7 -- Radius X untuk posisi acak (menjaga persegi panjang besar) 
+local summonRadiusZ = 10 -- Radius Z untuk posisi acak (menjaga persegi panjang besar)
+local summonDelay = 2 -- Waktu jeda sebelum summon berikutnya dalam detik
+local proximityToPath = 3 -- Jarak minimum dari path untuk posisi summon 
+
+-- Path awal: Jalan Panjang Tengah
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local part1 = workspace.Map:WaitForChild("Paths"):WaitForChild("3"):WaitForChild("2")
+local part2 = workspace.Map:WaitForChild("Paths"):WaitForChild("3"):WaitForChild("3")
+local middlePosition = (part1.Position + part2.Position) / 2
+
+-- Teleport karakter ke posisi tengah
+character.HumanoidRootPart.CFrame = CFrame.new(middlePosition)
+
+-- Membuat visualisasi radius persegi panjang
+local visualIndicator = Instance.new("Part")
+visualIndicator.Size = Vector3.new(summonRadiusX * 2, 0.1, summonRadiusZ * 2)
+visualIndicator.Anchored = true
+visualIndicator.CanCollide = false
+visualIndicator.BrickColor = BrickColor.new("Bright blue")
+visualIndicator.Transparency = 0.7
+visualIndicator.Parent = workspace
+
+-- Fungsi memperbarui visualisasi mengikuti pemain
+local function updateVisualIndicator()
+    while true do
+        visualIndicator.Position = character.HumanoidRootPart.Position + Vector3.new(0, -0.5, 0)
+        wait(0.1)
+    end
+end
+spawn(updateVisualIndicator)
+
+-- Tabel untuk menyimpan posisi yang sudah digunakan
+local usedPositions = {}
+
+-- Fungsi mengecek apakah posisi sudah digunakan
+local function isPositionUsed(position)
+    for _, pos in pairs(usedPositions) do
+        if (pos - position).magnitude < 3 then
+            return true
+        end
+    end
+    return false
+end
+
+-- Fungsi mengecek apakah posisi terlalu dekat dengan jalur
+local function isTooCloseToPath(position)
+    local paths = {
+        workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("Start"),
+        workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("1"),
+        workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2"),
+    }
+    for _, path in ipairs(paths) do
+        if (path.Position - position).magnitude < proximityToPath then
+            return true
+        end
+    end
+    return false
+end
+
+-- Loop untuk menyummon unit "Nightguard Afton" sebanyak summonCount kali
+for i = 1, summonCount do
+    -- Code ke 1: Menghentikan pengaturan
+    local argsReset = {
+        [1] = "Reset"
+    }
+    game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer(unpack(argsReset))
+
+    -- Code ke 2: Mengulang sebanyak 68 kali
+    for j = 1, 68 do
+        game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer()
+    end
+
+    -- Loop untuk mencoba spawn di posisi terdekat
+    for attempt = 1, 100 do
+        local randomX = math.random(-summonRadiusX, summonRadiusX)
+        local randomZ = math.random(-summonRadiusZ, summonRadiusZ)
+        local newPosition = character.HumanoidRootPart.Position + Vector3.new(randomX, 0, randomZ)
+
+        -- Memastikan posisi tidak digunakan dan tidak terlalu dekat dengan jalur
+        if not isPositionUsed(newPosition) and not isTooCloseToPath(newPosition) then
+            -- Menyimpan posisi yang digunakan
+            table.insert(usedPositions, newPosition)
+
+            -- Code ke 3: Menyummon unit "Nightguard Afton" di posisi baru
+            local argsSummon = {
+                [1] = petName,
+                [2] = CFrame.new(newPosition)
+            }
+
+            game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(argsSummon))
+            wait(summonDelay) -- Jeda sebelum summon berikutnya
+            break
+        end
+    end
+end
+
+-- Teleport ke koordinat akhir lingkaran Freddy Pink setelah summonCount tercapai
+local part = workspace.Map:WaitForChild("Paths"):WaitForChild("3"):WaitForChild("2")
+character.HumanoidRootPart.CFrame = part.CFrame
