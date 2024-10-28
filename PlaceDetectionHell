@@ -20,15 +20,11 @@ if game.PlaceId == 15860930970 then
     end
     
     local scripts = {
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/ajg.txt",--Funtime Freddy
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/place_funtime_foxy.txt",
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/real_bonnie.txt",
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/tamety.txt",
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanem1",--polisi
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanem2",--freddy pink
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade1",
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade2",
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/auto_skip.txt",
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/sell.txt",
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/upgrade_o_bonnie.txt",
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/upgrade_real_bonnie.txt",
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/upgrade_funtime.txt",
         "https://raw.githubusercontent.com/LocasTheBoys/efentedeh/refs/heads/main/TryAgain"
     }
     
