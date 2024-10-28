@@ -1,10 +1,10 @@
 wait (120)
 -- Konfigurasi script summon pet benar 2
 local petName = "Tangle"
-local summonCount = 10 -- Jumlah pet yang akan disummon
+local summonCount = 15 -- Jumlah pet yang akan disummon
 local summonRadiusX = 7 -- Radius X untuk posisi acak (menjaga persegi panjang besar) 
-local summonRadiusZ = 10 -- Radius Z untuk posisi acak (menjaga persegi panjang besar)
-local summonDelay = 2 -- Waktu jeda sebelum summon berikutnya dalam detik
+local summonRadiusZ = 15 -- Radius Z untuk posisi acak (menjaga persegi panjang besar)
+local summonDelay = 5 -- Waktu jeda sebelum summon berikutnya dalam detik
 local proximityToPath = 6 -- Jarak minimum dari path untuk posisi summon 
 
 -- Path awal: Jalan Panjang Tengah
