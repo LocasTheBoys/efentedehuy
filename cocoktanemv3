@@ -1,4 +1,3 @@
-wait(5)
 -- Konfigurasi script summon pet benar 2
 local petName = "Tangle"
 local summonCount = 15 -- Jumlah pet yang akan disummon
