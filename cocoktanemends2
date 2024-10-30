@@ -2,9 +2,9 @@ wait(135)
 -- Konfigurasi
 local petName = "Funtime Freddy" -- Nama pet yang akan disummon, mudah diubah di sini
 local waitTimeTeleport = 1 -- Waktu tunggu setelah teleportasi sebelum summon pet
-local waitTimeBetweenTeleports = 3 -- Waktu tunggu sebelum teleportasi berikutnya
+local waitTimeBetweenTeleports = 15 -- Waktu tunggu sebelum teleportasi berikutnya
 local waitTimeBetweenLoops = 15 -- Waktu tunggu antara setiap loop
-local loopCount = 5 -- Jumlah pengulangan teleportasi dan summon pet
+local loopCount = 3 -- Jumlah pengulangan teleportasi dan summon pet
 
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
