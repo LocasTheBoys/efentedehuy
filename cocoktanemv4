@@ -126,7 +126,7 @@ local function runScript2()
 
     local petName = "Funtime Freddy"
     local maxFreddyCount = 10  
-    local summonRadius = 7
+    local summonRadius = 10
     local innerRadius = 5
     local summonDelay = 3
     local proximityToPath = 3
