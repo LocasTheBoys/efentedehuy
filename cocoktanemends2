@@ -1,4 +1,4 @@
-wait(60)
+wait(120)
 -- Konfigurasi
 local petName = "Funtime Freddy" -- Nama pet yang akan disummon, mudah diubah di sini
 local waitTimeTeleport = 1 -- Waktu tunggu setelah teleportasi sebelum summon pet
