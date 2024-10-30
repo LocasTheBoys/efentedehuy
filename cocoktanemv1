@@ -105,15 +105,17 @@ for i = 1, summonCount do
             }
 
             game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(argsSummon))
-            wait(summonDelay)
-            break
+            wait(summonDelay)  -- Tunggu setelah summon
+            break  -- Keluar dari loop jika summon berhasil
         end
     end
 end
 
 -- Teleport ke lokasi awal setelah semua summon selesai
-character.HumanoidRootPart.CFrame = CFrame.new(middlePosition)  -- menggunakan middlePosition yang sudah dihitung sebelumnya
+character.HumanoidRootPart.CFrame = CFrame.new(middlePosition)  -- Gunakan middlePosition
 
-repeat task.wait() until game:IsLoaded()
-wait(1) -- waktu tunggu
-loadstring(game:HttpGet("https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemv2"))()
+-- Tambahkan loadstring setelah teleportasi selesai
+repeat task.wait() until game:IsLoaded()  -- Tunggu hingga game dimuat
+wait(1) -- Tunggu 1 detik
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanem2"))()  -- Eksekusi loadstring
+
