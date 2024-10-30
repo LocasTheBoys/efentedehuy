@@ -125,10 +125,10 @@ local function runScript2()
     local hologramTransparency = 0.5 -- Transparansi setengah transparan
 
     local petName = "Funtime Freddy"
-    local maxFreddyCount = 10  
+    local maxFreddyCount = 7
     local summonRadius = 10
     local innerRadius = 5
-    local summonDelay = 3
+    local summonDelay = 2
     local proximityToPath = 3
     local usedPositions = {}
 
