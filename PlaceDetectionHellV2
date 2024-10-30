@@ -20,7 +20,7 @@ if game.PlaceId == 15860930970 then
     end
     
     local scripts = {
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemv1",--polisi
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemv4",--polisi
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade1",
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade2",
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade3",
