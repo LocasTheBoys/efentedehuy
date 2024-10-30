@@ -1,21 +1,25 @@
-wait(350)
 -- Konfigurasi
 local petName = "Tangle" -- Nama pet yang akan disummon, mudah diubah di sini
 local waitTimeTeleport = 3 -- Waktu tunggu setelah teleportasi sebelum summon pet
-local waitTimeBetweenTeleports = 15 -- Waktu tunggu sebelum teleportasi berikutnya
-local waitTimeBetweenLoops = 10 -- Waktu tunggu antara setiap loop
-local loopCount = 1 -- Jumlah pengulangan teleportasi dan summon pet
+local waitTimeBetweenTeleports = 10 -- Waktu tunggu sebelum teleportasi berikutnya 
+local waitTimeBetweenLoops = 2 -- Waktu tunggu antara setiap loop 
+local loopCount = 2 -- Jumlah pengulangan teleportasi dan summon pet 
+local targetWaves = { "Wave 38/∞", "Wave 39/∞", "Wave 40/∞" }  -- Wave yang diinginkan untuk mulai summon 
 
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
+local PathWaveDetection = Player.PlayerGui.Top.Wave
+local executedWaves = {} -- Menyimpan status eksekusi untuk setiap wave
 
--- Fungsi teleportasi dan summon pet
-local function teleportAndSummon(part1, part2)
+-- Fungsi teleportasi dan summon pet di posisi tengah
+local function teleportAndSummon()
     local character = Player.Character or Player.CharacterAdded:Wait()
 
     -- Menentukan midpoint antara part1 dan part2, lalu memindahkan karakter ke midpoint tersebut
-    local finalMidpoint = (part1.Position + part2.Position) / 2
-    character.HumanoidRootPart.CFrame = CFrame.new(finalMidpoint)
+    local part1 = workspace.Map:WaitForChild("Paths"):WaitForChild("2"):WaitForChild("Start")
+    local part2 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("1")
+    local middlePosition = (part1.Position + part2.Position) / 2
+    character.HumanoidRootPart.CFrame = CFrame.new(middlePosition)
 
     -- Waktu tunggu setelah teleportasi sebelum summon pet
     task.wait(waitTimeTeleport)
@@ -37,33 +41,22 @@ local function teleportAndSummon(part1, part2)
     game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(argsSummon))
 end
 
--- Menyiapkan bagian untuk teleportasi di tiga posisi berbeda
-local player = Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-
--- Posisi 1
-local part1a = workspace.Map:WaitForChild("Paths"):WaitForChild("3"):WaitForChild("1")
-local part1b = workspace.Map:WaitForChild("Paths"):WaitForChild("3"):WaitForChild("3")
-
--- Posisi 2
-local part2a = workspace.Map:WaitForChild("Paths"):WaitForChild("2"):WaitForChild("Start")
-local part2b = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("1")
-
--- Posisi 3
-local part3a = workspace.Map:WaitForChild("Paths"):WaitForChild("3"):WaitForChild("1")
-local part3b = workspace.Map:WaitForChild("Paths"):WaitForChild("2"):WaitForChild("3")
-
--- Menjalankan teleportasi dan summon di setiap part sesuai jumlah loopCount
-for i = 1, loopCount do
-    teleportAndSummon(part1a, part1b) -- Posisi 1
-    task.wait(waitTimeBetweenTeleports)
-
-    teleportAndSummon(part2a, part2b) -- Posisi 2
-    task.wait(waitTimeBetweenTeleports)
-
-    teleportAndSummon(part3a, part3b) -- Posisi 3
-    task.wait(waitTimeBetweenTeleports)
-
+-- Fungsi utama untuk memulai summon dengan loopCount dan waitTimeBetweenLoops
+local function startSummoning()
+    for i = 1, loopCount do
+        teleportAndSummon()
+        task.wait(waitTimeBetweenTeleports)
+    end
     -- Waktu tunggu antara setiap loop
     task.wait(waitTimeBetweenLoops)
 end
+
+-- Menambahkan listener untuk mendeteksi perubahan teks di PathWaveDetection
+PathWaveDetection:GetPropertyChangedSignal("Text"):Connect(function()
+    local waveText = PathWaveDetection.Text
+    if table.find(targetWaves, waveText) and not executedWaves[waveText] then
+        -- Jika wave yang diinginkan terdeteksi dan belum dieksekusi, mulai summon
+        executedWaves[waveText] = true
+        startSummoning()
+    end
+end)
