@@ -1,13 +1,13 @@
 wait(10)
 -- Konfigurasi Hologram Pathway
-local hologramColor = Color3.fromRGB(255, 255, 255) -- Warna putih
+local hologramColor = Color3.fromRGB(255, 255, 255) -- Warna biru
 local hologramTransparency = 0.5 -- Transparansi hologram (0 = opaque, 1 = transparan)
 
 -- Konfigurasi Summon Pet
 local petName = "Nightguard Afton" -- Nama pet yang akan disummon
 local summonCount = 10 -- Jumlah pet yang akan disummon 
-local summonRadiusX = 5 -- Radius acak X (mengatur area summon persegi panjang)
-local summonRadiusZ = 7 -- Radius acak Z (mengatur area summon persegi panjang)
+local summonRadiusX = 7 -- Radius acak X (mengatur area summon persegi panjang)
+local summonRadiusZ = 10 -- Radius acak Z (mengatur area summon persegi panjang)
 local summonDelay = 2 -- Jeda antar summon dalam detik
 local proximityToPath = 3 -- Jarak minimum dari pathways untuk posisi summon
 
@@ -105,17 +105,15 @@ for i = 1, summonCount do
             }
 
             game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(argsSummon))
-            wait(summonDelay)  -- Tunggu setelah summon
-            break  -- Keluar dari loop jika summon berhasil
+            wait(summonDelay)
+            break
         end
     end
 end
 
--- Teleport ke lokasi awal setelah semua summon selesai
-character.HumanoidRootPart.CFrame = CFrame.new(middlePosition)  -- Gunakan middlePosition
+-- Teleport ke koordinat akhir lingkaran Freddy Pink setelah summonCount tercapai
+local part = workspace.Map:WaitForChild("Paths"):WaitForChild("3"):WaitForChild("2")
+character.HumanoidRootPart.CFrame = part.CFrame
 
--- Tambahkan loadstring setelah teleportasi selesai
-repeat task.wait() until game:IsLoaded()  -- Tunggu hingga game dimuat
-wait(1) -- Tunggu 1 detik
-loadstring(game:HttpGet("https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanem2"))()  -- Eksekusi loadstring
-
+-- Eksekusi loadstring setelah semua summon selesai
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanem2"))()
