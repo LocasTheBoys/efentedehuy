@@ -1,0 +1,118 @@
+wait(2)
+-- Konfigurasi warna dan transparansi hologram
+local hologramColor = Color3.fromRGB(255, 255, 255) -- Warna orange menyala
+local hologramTransparency = 0.5 -- Transparansi setengah transparan
+
+-- Konfigurasi summon pet
+local petName = "Funtime Freddy"
+local maxFreddyCount = 10  
+local summonRadius = 7 -- Radius luar lingkaran summon  
+local innerRadius = 7 -- Radius dalam (lubang donat)
+local summonDelay = 5 -- Jeda sebelum summon berikutnya  
+local proximityToPath = 3 -- Jarak minimum dari path untuk summon 
+local usedPositions = {}
+
+-- Membuat hologram pathway
+local pathwayFolder = game.Workspace.Map.Pathways
+for _, pathwayPart in ipairs(pathwayFolder:GetChildren()) do
+    if pathwayPart:IsA("Part") then
+        local hologram = pathwayPart:Clone()
+        hologram.Name = pathwayPart.Name .. "_Hologram"
+        hologram.CanCollide = false
+        hologram.Transparency = hologramTransparency
+        hologram.BrickColor = BrickColor.new(hologramColor)
+        hologram.Position = pathwayPart.Position + Vector3.new(0, 0.1, 0)
+        hologram.Parent = pathwayFolder
+    end
+end
+
+-- Fungsi update visual indikator lingkaran summon
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+local radiusIndicator = Instance.new("Part")
+radiusIndicator.Shape = Enum.PartType.Ball
+radiusIndicator.Size = Vector3.new(summonRadius * 2, 0.1, summonRadius * 2)
+radiusIndicator.Position = humanoidRootPart.Position + Vector3.new(0, -0.5, 0)
+radiusIndicator.Anchored = true
+radiusIndicator.CanCollide = false
+radiusIndicator.BrickColor = BrickColor.new("Bright blue")
+radiusIndicator.Transparency = 0.7
+radiusIndicator.Parent = workspace
+
+local function updateRadiusIndicator()
+    while true do
+        radiusIndicator.Position = humanoidRootPart.Position + Vector3.new(0, -0.5, 0)
+        wait(0.1)
+    end
+end
+spawn(updateRadiusIndicator)
+
+-- Fungsi mengecek jarak dari pathways
+local function isTooCloseToPath(position)
+    for _, path in ipairs(pathwayFolder:GetChildren()) do
+        if (path.Position - position).magnitude < proximityToPath then
+            return true
+        end
+    end
+    return false
+end
+
+-- Fungsi mengecek apakah posisi sudah digunakan
+local function isPositionUsed(position)
+    for _, pos in pairs(usedPositions) do
+        if (pos - position).magnitude < 3 then
+            return true
+        end
+    end
+    return false
+end
+
+-- Fungsi untuk mengecek apakah posisi berada dalam radius dalam (hole)
+local function isWithinInnerRadius(position)
+    return (position - humanoidRootPart.Position).magnitude < innerRadius
+end
+
+-- Summon Funtime Freddy dengan deteksi pathways
+local currentFreddyCount = 0
+while currentFreddyCount < maxFreddyCount do
+    -- Reset any previous settings
+    local args = { [1] = "Reset" }
+    game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer(unpack(args))
+    
+    for j = 1, 68 do
+        game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer()
+    end
+
+    local attempts = 0
+    local maxAttempts = 50
+    local newPosition
+
+    repeat
+        local randomX = math.random(-summonRadius, summonRadius)
+        local randomZ = math.random(-summonRadius, summonRadius)
+        newPosition = humanoidRootPart.Position + Vector3.new(randomX, 0, randomZ)
+        attempts = attempts + 1
+    until not isPositionUsed(newPosition) and 
+          not isTooCloseToPath(newPosition) and 
+          not isWithinInnerRadius(newPosition) or attempts >= maxAttempts
+
+    if not isPositionUsed(newPosition) and not isWithinInnerRadius(newPosition) and attempts < maxAttempts then
+        table.insert(usedPositions, newPosition)
+
+        local argsSummon = { [1] = petName, [2] = CFrame.new(newPosition) }
+        game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(argsSummon))
+        currentFreddyCount = currentFreddyCount + 1
+
+        wait(summonDelay)
+    else
+        print("Gagal menemukan posisi valid setelah " .. attempts .. " percobaan.")
+    end
+end
+
+print("Batas jumlah Freddy telah tercapai: " .. currentFreddyCount)
+
+repeat task.wait() until game:IsLoaded()
+wait(1) -- waktu tunggu
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemv3"))()
