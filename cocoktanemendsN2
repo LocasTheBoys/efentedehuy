@@ -50,8 +50,8 @@ local part2a = workspace.Map:WaitForChild("Paths"):WaitForChild("2"):WaitForChil
 local part2b = workspace.Map:WaitForChild("Paths"):WaitForChild("2"):WaitForChild("2")
 
 -- Posisi 3
-local part3a = workspace.Map:WaitForChild("Paths"):WaitForChild("3"):WaitForChild("1")
-local part3b = workspace.Map:WaitForChild("Paths"):WaitForChild("3"):WaitForChild("3")
+local part3a = workspace.Map:WaitForChild("Paths"):WaitForChild("2"):WaitForChild("Start")
+local part3b = workspace.Map:WaitForChild("Paths"):WaitForChild("4"):WaitForChild("1")
 
 -- Menjalankan teleportasi dan summon di setiap part sesuai jumlah loopCount
 for i = 1, loopCount do
