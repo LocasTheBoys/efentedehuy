@@ -1,0 +1,5 @@
+local args = {
+    [1] = "Treat"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Main.Modifiers:FireServer(unpack(args))
