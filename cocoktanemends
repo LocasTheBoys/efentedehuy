@@ -1,8 +1,9 @@
+wait(15)
 -- Konfigurasi
 local petName = "Nightguard Afton" -- Nama pet yang akan disummon, mudah diubah di sini
 local waitTimeTeleport = 1 -- Waktu tunggu setelah teleportasi sebelum summon pet
 local waitTimeBetweenTeleports = 1 -- Waktu tunggu sebelum teleportasi berikutnya
-local loopCount = 2 -- Jumlah pengulangan teleportasi dan summon pet
+local loopCount = 5 -- Jumlah pengulangan teleportasi dan summon pet
 
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
