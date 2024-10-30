@@ -103,7 +103,3 @@ end
 -- Teleport ke koordinat akhir lingkaran Freddy Pink setelah summonCount tercapai
 local part = workspace.Map:WaitForChild("Paths"):WaitForChild("3"):WaitForChild("2")
 character.HumanoidRootPart.CFrame = part.CFrame
-
-repeat task.wait() until game:IsLoaded()
-wait(1) -- waktu tunggu
-loadstring(game:HttpGet("https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade3"))()
