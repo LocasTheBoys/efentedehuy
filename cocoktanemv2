@@ -1,4 +1,3 @@
-wait(2)
 -- Konfigurasi warna dan transparansi hologram
 local hologramColor = Color3.fromRGB(255, 255, 255) -- Warna orange menyala
 local hologramTransparency = 0.5 -- Transparansi setengah transparan
@@ -8,7 +7,7 @@ local petName = "Funtime Freddy"
 local maxFreddyCount = 10  
 local summonRadius = 7 -- Radius luar lingkaran summon  
 local innerRadius = 7 -- Radius dalam (lubang donat)
-local summonDelay = 5 -- Jeda sebelum summon berikutnya  
+local summonDelay = 3 -- Jeda sebelum summon berikutnya  
 local proximityToPath = 3 -- Jarak minimum dari path untuk summon 
 local usedPositions = {}
 
