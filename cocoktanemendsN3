@@ -1,4 +1,4 @@
-wait(300)
+wait(350)
 -- Konfigurasi
 local petName = "Tangle" -- Nama pet yang akan disummon, mudah diubah di sini
 local waitTimeTeleport = 1 -- Waktu tunggu setelah teleportasi sebelum summon pet
