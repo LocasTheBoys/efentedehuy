@@ -112,4 +112,11 @@ end
 
 print("Batas jumlah Freddy telah tercapai: " .. currentFreddyCount)
 
+-- Debug statement sebelum loadstring
+print("Menjalankan loadstring...")
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemv3"))()
+
+-- Debug statement setelah loadstring
+print("Loadstring telah dijalankan.")
+
