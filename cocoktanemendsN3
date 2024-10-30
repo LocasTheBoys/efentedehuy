@@ -42,8 +42,8 @@ local player = Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 
 -- Posisi 1
-local part1a = workspace.Map:WaitForChild("Paths"):WaitForChild("2"):WaitForChild("Start")
-local part1b = workspace.Map:WaitForChild("Paths"):WaitForChild("4"):WaitForChild("1")
+local part1a = workspace.Map:WaitForChild("Paths"):WaitForChild("3"):WaitForChild("1")
+local part1b = workspace.Map:WaitForChild("Paths"):WaitForChild("3"):WaitForChild("3")
 
 -- Posisi 2
 local part2a = workspace.Map:WaitForChild("Paths"):WaitForChild("2"):WaitForChild("Start")
