@@ -1,3 +1,4 @@
+wait(10)
 -- Konfigurasi Hologram Pathway
 local hologramColor = Color3.fromRGB(255, 255, 255) -- Warna putih
 local hologramTransparency = 0.5 -- Transparansi hologram (0 = opaque, 1 = transparan)
