@@ -1,3 +1,4 @@
+wait(30)
 -- Konfigurasi Auto sellWave 51/60
 local targetWaves = { "Wave 51/∞" }  -- Ganti dengan wave yang diinginkan
 local targetUnitName = { "Nightguard Afton", "Funtime Freddy", "Tangle" } -- Nama unit yang ingin dijual
