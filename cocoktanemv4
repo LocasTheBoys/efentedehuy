@@ -121,7 +121,7 @@ end
 -- Fungsi untuk menjalankan script 2
 local function runScript2()
     wait(2) -- Jeda antara script 1 dan script 2
-    local hologramColor = Color3.fromRGB(255, 165, 0) -- Warna orange menyala
+    local hologramColor = Color3.fromRGB(255, 255, 255) -- Warna orange menyala
     local hologramTransparency = 0.5 -- Transparansi setengah transparan
 
     local petName = "Funtime Freddy"
