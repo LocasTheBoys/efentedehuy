@@ -1,0 +1,6 @@
+wait(15)
+local args = {
+    [1] = "Trick"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Main.Modifiers:FireServer(unpack(args))
