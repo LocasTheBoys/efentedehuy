@@ -20,9 +20,9 @@ if game.PlaceId == 15860930970 then
     end
     
     local scripts = {
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemendsN1",--polisi
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemendsN2",--freddy
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemendsN3",--tangle
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemendsT1",--polisi
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemendsT2",--freddy
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemendsT3",--tangle
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade1",
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade2",
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade3",
