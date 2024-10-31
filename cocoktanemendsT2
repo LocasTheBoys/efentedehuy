@@ -5,7 +5,7 @@ local waitTimeTeleport = 1 -- Waktu tunggu setelah teleportasi sebelum summon pe
 local waitTimeBetweenTeleports = 10 -- Waktu tunggu sebelum teleportasi berikutnya
 local waitTimeBetweenLoops = 10 -- Waktu tunggu antara setiap loop
 local loopCount = 5 -- Jumlah pengulangan teleportasi dan summon pet
-local targetWaves = { "Wave 12/∞", "Wave 13/∞" }  -- Wave yang diinginkan untuk mulai summon
+local targetWaves = { "Wave 11/∞", "Wave 12/∞", "Wave 13/∞" }  -- Wave yang diinginkan untuk mulai summon
 local stopWave = "Wave 30/∞"  -- Wave di mana loop akan berhenti
 
 local Players = game:GetService("Players")
