@@ -1,3 +1,4 @@
+wait(15)
 -- Konfigurasi
 local targetWavesForUpgrade = { "Wave 38/15", "Wave 39/15", "Wave 40/15" } -- Wave di mana upgrade diaktifkan
 local stopWave = "Wave 41/15" -- Wave di mana loop upgrade akan berhenti
