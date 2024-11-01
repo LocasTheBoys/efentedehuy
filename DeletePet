@@ -1,22 +1,11 @@
-local args = {
-    [1] = "Rare"
-}
+-- Daftar rarity yang ingin dihapus
+local rarities = { "Rare", "Epic"}
 
-game:GetService("ReplicatedStorage").Remotes.Misc.AutoDelete:FireServer(unpack(args))
-
-wait (1)
-
-local args = {
-    [1] = "Epic"
-}
-
-game:GetService("ReplicatedStorage").Remotes.Misc.AutoDelete:FireServer(unpack(args))
-
-wait (1)
-
-
-local args = {
-    [1] = "Mythic"
-}
-
-game:GetService("ReplicatedStorage").Remotes.Misc.AutoDelete:FireServer(unpack(args))
+-- Loop untuk menjalankan auto delete untuk setiap rarity dengan delay
+for _, rarity in ipairs(rarities) do
+    local args = {
+        [1] = rarity
+    }
+    game:GetService("ReplicatedStorage").Remotes.Misc.AutoDelete:FireServer(unpack(args))
+    wait(1) -- Delay selama 1 detik setelah setiap eksekusi
+end
