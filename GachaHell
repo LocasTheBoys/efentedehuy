@@ -1,0 +1,22 @@
+--Gacha
+wait(2)
+-- Jumlah thread paralel
+local numThreads = 2
+-- Bagi jumlah eksekusi total
+local executionsPerThread = math.ceil(999999 / numThreads)
+
+-- Fungsi untuk mengeksekusi remote secara paralel
+local function spamRemote()
+    for i = 1, executionsPerThread do
+        local args = {
+            [1] = 1,
+            [2] = "Halloween"
+        }
+        game:GetService("ReplicatedStorage").Remotes.Summons.Hatch:InvokeServer(unpack(args))
+    end
+end
+
+-- Menjalankan loop dalam beberapa thread
+for i = 1, numThreads do
+    task.spawn(spamRemote)
+end
