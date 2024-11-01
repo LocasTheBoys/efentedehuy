@@ -1,0 +1,22 @@
+local args = {
+    [1] = "Rare"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Misc.AutoDelete:FireServer(unpack(args))
+
+wait (1)
+
+local args = {
+    [1] = "Epic"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Misc.AutoDelete:FireServer(unpack(args))
+
+wait (1)
+
+
+local args = {
+    [1] = "Mythic"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Misc.AutoDelete:FireServer(unpack(args))
