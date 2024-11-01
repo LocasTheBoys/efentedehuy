@@ -1,7 +1,7 @@
 --Gacha
 wait(2)
 -- Jumlah thread paralel
-local numThreads = 3
+local numThreads = 10
 -- Bagi jumlah eksekusi total
 local executionsPerThread = math.ceil(999999 / numThreads)
 
