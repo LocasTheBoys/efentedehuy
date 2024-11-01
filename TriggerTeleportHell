@@ -1,0 +1,6 @@
+wait(1)
+--awalan
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1005.52, 245.76, -43.53)
+wait(1)
+--finish
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1002.92, 245.96, -38.56)
