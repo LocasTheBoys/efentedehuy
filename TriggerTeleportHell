@@ -5,9 +5,9 @@ wait(1)
 --finish
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1002.92, 245.96, -38.56)
 
-wait(10)
+wait(5)
 
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1723.62, 8.14, -4685.00)
 
 wait(1)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1002.92, 245.96, -38.56)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1733.56, 8.48, -4685.77)
