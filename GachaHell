@@ -1,7 +1,7 @@
 --Gacha
 wait(2)
 -- Jumlah thread paralel
-local numThreads = 2
+local numThreads = 3
 -- Bagi jumlah eksekusi total
 local executionsPerThread = math.ceil(999999 / numThreads)
 
@@ -9,7 +9,7 @@ local executionsPerThread = math.ceil(999999 / numThreads)
 local function spamRemote()
     for i = 1, executionsPerThread do
         local args = {
-            [1] = 1,
+            [1] = 10,
             [2] = "Halloween"
         }
         game:GetService("ReplicatedStorage").Remotes.Summons.Hatch:InvokeServer(unpack(args))
