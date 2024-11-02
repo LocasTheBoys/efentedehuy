@@ -1,0 +1,94 @@
+wait(15)
+-- Konfigurasi
+local petName = "Clowntrap" -- Nama pet yang akan disummon, mudah diubah di sini
+local waitTimeTeleport = 1 -- Waktu tunggu setelah teleportasi sebelum summon pet
+local waitTimeBetweenTeleports = 10 -- Waktu tunggu sebelum teleportasi berikutnya
+local waitTimeBetweenLoops = 10 -- Waktu tunggu antara setiap loop
+local loopCount = 5 -- Jumlah pengulangan teleportasi dan summon pet
+local targetWaves = { "Wave 11/∞", "Wave 12/∞", "Wave 13/∞" }  -- Wave yang diinginkan untuk mulai summon
+local stopWave = "Wave 30/∞"  -- Wave di mana loop akan berhenti
+
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+local PathWaveDetection = Player.PlayerGui.Top.Wave
+local executedWaves = {} -- Menyimpan status eksekusi untuk setiap wave
+local stopLoop = false  -- Status untuk menghentikan loop
+
+-- Menyiapkan bagian untuk teleportasi di tiga posisi berbeda
+local part1a = workspace.Map:WaitForChild("Paths"):WaitForChild("2"):WaitForChild("Start")
+local part1b = workspace.Map:WaitForChild("Paths"):WaitForChild("3"):WaitForChild("2")
+
+local part2a = workspace.Map:WaitForChild("Paths"):WaitForChild("2"):WaitForChild("Start")
+local part2b = workspace.Map:WaitForChild("Paths"):WaitForChild("2"):WaitForChild("2")
+
+local part3a = workspace.Map:WaitForChild("Paths"):WaitForChild("2"):WaitForChild("Start")
+local part3b = workspace.Map:WaitForChild("Paths"):WaitForChild("4"):WaitForChild("1")
+
+-- Fungsi teleportasi dan summon pet
+local function teleportAndSummon(part1, part2)
+    -- Jika loop harus berhenti, keluar dari fungsi
+    if stopLoop then return end
+
+    local character = Player.Character or Player.CharacterAdded:Wait()
+
+    -- Menentukan midpoint antara part1 dan part2, lalu memindahkan karakter ke midpoint tersebut
+    local finalMidpoint = (part1.Position + part2.Position) / 2
+    character.HumanoidRootPart.CFrame = CFrame.new(finalMidpoint)
+
+    -- Waktu tunggu setelah teleportasi sebelum summon pet
+    task.wait(waitTimeTeleport)
+
+    -- Mengirim sinyal "Reset" untuk StopSettings
+    local argsReset = { [1] = "Reset" }
+    game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer(unpack(argsReset))
+
+    -- Mengirim sinyal StopSettings berulang kali
+    for i = 1, 68 do
+        game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer()
+    end
+
+    -- Mengambil CFrame dari HumanoidRootPart pemain untuk summoning
+    local humanoidRootPartCFrame = character.HumanoidRootPart.CFrame
+
+    -- Mengirim sinyal untuk summon tower dengan pet yang sudah dikonfigurasi
+    local argsSummon = { [1] = petName, [2] = humanoidRootPartCFrame }
+    game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(argsSummon))
+end
+
+-- Fungsi utama untuk memulai summon berdasarkan loopCount dan stopLoop
+local function startSummoning()
+    for i = 1, loopCount do
+        -- Jika loop harus berhenti, keluar dari loop
+        if stopLoop then break end
+
+        teleportAndSummon(part1a, part1b) -- Posisi 1
+        task.wait(waitTimeBetweenTeleports)
+
+        teleportAndSummon(part2a, part2b) -- Posisi 2
+        task.wait(waitTimeBetweenTeleports)
+
+        teleportAndSummon(part3a, part3b) -- Posisi 3
+        task.wait(waitTimeBetweenTeleports)
+
+        -- Waktu tunggu antara setiap loop
+        task.wait(waitTimeBetweenLoops)
+    end
+end
+
+-- Menambahkan listener untuk mendeteksi perubahan teks di PathWaveDetection
+PathWaveDetection:GetPropertyChangedSignal("Text"):Connect(function()
+    local waveText = PathWaveDetection.Text
+
+    -- Hentikan loop jika wave mencapai atau melebihi stopWave
+    if waveText == stopWave then
+        stopLoop = true
+        print("Loop dihentikan karena mencapai " .. stopWave)
+        return
+    end
+
+    -- Jika wave yang diinginkan terdeteksi dan belum dieksekusi, mulai summon
+    if table.find(targetWaves, waveText) and not executedWaves[waveText] then
+        executedWaves[waveText] = true
+        startSummoning()
+    end
+end)
