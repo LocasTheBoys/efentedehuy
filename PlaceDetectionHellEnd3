@@ -20,14 +20,14 @@ if game.PlaceId == 15860930970 then
     end
     
     local scripts = {
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemendsN1",--polisi
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemendsN2",--freddy
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemendsN3",--tangle
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade1",
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade2",
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade3",
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Selling1",
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/pilihmode",
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemendsT1",--polisi
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemendsT4",--Clowntrap
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemendsT3",--tangle
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade4",--tangle
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade7",--Clowntrap
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Upgrade6",--polisi
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/sellingtrick",
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/pilihmode2",
         "https://raw.githubusercontent.com/LocasTheBoys/efentedeh/refs/heads/main/AutoSkip",
         "https://raw.githubusercontent.com/LocasTheBoys/efentedeh/refs/heads/main/TryAgain"
     }
