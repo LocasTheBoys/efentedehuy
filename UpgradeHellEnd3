@@ -1,6 +1,6 @@
 wait(15)
-local targetWavesForUpgrade = { "Wave 9/∞", "Wave 10/∞" } -- Wave di mana upgrade diaktifkan
-local stopWave = "Wave 15/∞" -- Wave di mana loop upgrade akan berhenti
+local targetWavesForUpgrade = { "Wave 16/∞", "Wave 17/∞" } -- Wave di mana upgrade diaktifkan
+local stopWave = "Wave 30/∞" -- Wave di mana loop upgrade akan berhenti
 local petNameToUpgrade = "ITS ME" -- Nama pet yang akan di-upgrade
 local checkInterval = 5 -- Interval waktu antar pengecekan (dalam detik)
 
