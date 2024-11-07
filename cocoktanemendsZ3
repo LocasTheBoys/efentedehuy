@@ -5,8 +5,8 @@ local waitTimeTeleport = 2
 local waitTimeBetweenTeleports = 2
 local waitTimeBetweenLoops = 1
 local loopCount = 5
-local targetWaves = { "Wave 13/∞", "Wave 14/∞" }
-local stopWave = "Wave 16/∞"
+local targetWaves = { "Wave 20/∞", "Wave 21/∞" }
+local stopWave = "Wave 25/∞"
 local targetMoney = 15000 -- Ubah jumlah target money sesuai kebutuhan
 local PlacementMaxCap = 1 -- Kapasitas maksimum unit yang bisa dipasang
 
