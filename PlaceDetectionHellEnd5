@@ -21,7 +21,11 @@ if game.PlaceId == 15860930970 then
     
     local scripts = {
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemendsZ1",--polisi
-        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemendsZ2",--Berantai
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemendsZ2",--palu
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemendsZ3",--its
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemendsZ4",--sytle
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemendsZ5",--dred
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/cocoktanemendsZ6",--sekuriti
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/UpgradeHellEnd1",
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/UpgradeHellEnd2",
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/UpgradeHellEnd3",
@@ -29,6 +33,7 @@ if game.PlaceId == 15860930970 then
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/UpgradeHellEnd5",
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/UpgradeHellEnd6",
         "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/pilihmode2",
+        "https://raw.githubusercontent.com/LocasTheBoys/efentedehuy/refs/heads/main/Selling3",
         "https://raw.githubusercontent.com/LocasTheBoys/efentedeh/refs/heads/main/AutoSkip",
         "https://raw.githubusercontent.com/LocasTheBoys/efentedeh/refs/heads/main/TryAgain"
     }
