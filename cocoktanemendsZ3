@@ -73,7 +73,7 @@ end
 -- Fungsi untuk menyiapkan daftar koordinat teleportasi dengan posisi baru
 local function setupPartList()
     local offsetList = {
-        Vector3.new(-1, 0, -16)   -- Offset posisi ke-1 (POSISI KE 1)
+        Vector3.new(-6, 0, -15)   -- Offset posisi ke-1 (POSISI KE 1)
     }
     local partList = {}
 
