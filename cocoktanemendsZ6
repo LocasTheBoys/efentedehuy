@@ -75,7 +75,7 @@ end
 local function setupPartList()
     local offsetList = {
         Vector3.new(25, 0, -16),   -- Offset posisi ke-1 (POSISI KE 1)
-        Vector3.new(19, 0, -16)  -- Offset posisi ke-2 (POSISI KE 2)
+        Vector3.new(-19, 0, -16)  -- Offset posisi ke-2 (POSISI KE 2)
     }
     local partList = {}
 
