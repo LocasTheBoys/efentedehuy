@@ -1,5 +1,5 @@
 -- Daftar rarity yang ingin dihapus
-local rarities = { "Rare", "Epic"}
+local rarities = { "Rare", "Epic", "Mythic" }
 
 -- Loop untuk menjalankan auto delete untuk setiap rarity dengan delay
 for _, rarity in ipairs(rarities) do
