@@ -1,7 +1,7 @@
 wait(15)
 -- Konfigurasi Auto sellWave 41/60
 local targetWaves = { "Wave 42/∞","Wave 43/∞","Wave 44/∞","Wave 45/∞","Wave 46/∞","Wave 47/∞","Wave 48/∞","Wave 49/∞","Wave 50/∞","Wave 51/∞","Wave 52/∞","Wave 53/∞","Wave 54/∞","Wave 55/∞" }  -- Ganti dengan wave yang diinginkan
-local targetUnitName = { "Nightguard Afton", "Clowntrap", "Tangle" } -- Nama unit yang ingin dijual
+local targetUnitName = { "Nightguard Afton", "ITS ME", "Scarecrow Foxy", "Dreadbear", "Security Puppet", "Clowntrap" } -- Nama unit yang ingin dijual
 local waitTime = 2 -- Waktu tunggu dalam detik setelah wave terdeteksi
 
 local Players = game:GetService("Players")
